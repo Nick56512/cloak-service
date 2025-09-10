@@ -33,7 +33,7 @@ export class DetectService implements IDetectService  {
             isBot: false
         }
         const ipResult = await this.ipBlacklistRepository.findOne({
-            ip: requestData.ip
+           ip: requestData.ip
         })
         if(ipResult) {
            detectResult.isBot = true
@@ -43,11 +43,10 @@ export class DetectService implements IDetectService  {
             userAgent: requestData.userAgent
         })
         if(userAgentResult) {
-            detectResult.isBot = true
+           detectResult.isBot = true
            return detectResult
         }
         await this.requestHistoryRepository.create(requestData)
         return detectResult
     }
-
 }

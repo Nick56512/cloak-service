@@ -1,5 +1,8 @@
 export const enum InjectionTokens {
-    RequestHistoryRepository = "RequestHistoryRepository"
+    RequestHistoryRepository = "RequestHistoryRepository",
+    IpBlacklistRepository = 'IpBlacklistRepository',
+    UserAgentBlacklistRepository = 'UserAgentBlacklistRepository',
+    DetectService = 'DetectService'
 }
 
 export const enum ConfigParams {
