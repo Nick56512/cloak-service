@@ -18,7 +18,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prepare": "husky"
+    "prepare": "npx husky"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
@@ -84,12 +84,13 @@
       "@database": "build/database",
       "@config": "build/core/config",
       "@types": "build/core/@types/types.js"
-    },
-    "lint-staged": {
+    }
+  },
+
+  "lint-staged": {
       "src/**/*.{ts,js}": [
         "eslint --fix",
         "prettier --write"
-      ]
-    }
+    ]
   }
 }
