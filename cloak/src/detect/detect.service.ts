@@ -6,33 +6,33 @@ import { Request } from 'express';
 import { DetectResult, RequestDto } from './detect.models';
 
 export interface IDetectBotService {
-   detectBotByRequest(request: RequestDto): Promise<DetectResult | null>;
+  detectBotByRequest(request: RequestDto): Promise<DetectResult | null>;
 }
 
 @Injectable()
 export class DetectService implements IDetectBotService {
-   constructor(
-      private readonly requestHistoryRepository: IModelRepository<RequestHistoryDocument>,
-      private readonly requestBlacklistRepository: IModelRepository<RequestBlacklistDocument>,
-   ) {}
+  constructor(
+    private readonly requestHistoryRepository: IModelRepository<RequestHistoryDocument>,
+    private readonly requestBlacklistRepository: IModelRepository<RequestBlacklistDocument>,
+  ) {}
 
-   async detectBotByRequest(request: RequestDto): Promise<DetectResult | null> {
-      if (!request.ip) {
-         return null;
-      }
-      let detectResult: DetectResult = {
-         ip: request.ip,
-         isBot: false,
-      };
-      const blacklistResult = await this.requestBlacklistRepository.findOne({
-         $or: [{ ip: request.ip }, { userAgent: request.userAgent }],
-      });
-      if (blacklistResult) {
-         await this.requestBlacklistRepository.create(request);
-         detectResult.isBot = true;
-      } else {
-         await this.requestHistoryRepository.create(request);
-      }
-      return detectResult;
-   }
+  async detectBotByRequest(request: RequestDto): Promise<DetectResult | null> {
+    if (!request.ip) {
+      return null;
+    }
+    let detectResult: DetectResult = {
+      ip: request.ip,
+      isBot: false,
+    };
+    const blacklistResult = await this.requestBlacklistRepository.findOne({
+      $or: [{ ip: request.ip }, { userAgent: request.userAgent }],
+    });
+    if (blacklistResult) {
+      await this.requestBlacklistRepository.create(request);
+      detectResult.isBot = true;
+    } else {
+      await this.requestHistoryRepository.create(request);
+    }
+    return detectResult;
+  }
 }

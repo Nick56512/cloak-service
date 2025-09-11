@@ -7,22 +7,22 @@ import { RequestHistoryDocument } from '@database/entities/request.history';
 import { RequestBlacklistDocument } from '@database/entities/request.blacklist';
 
 @Module({
-   imports: [],
-   providers: [
-      {
-         provide: InjectionTokens.DetectService,
-         useFactory: (
-            requestHistory: IModelRepository<RequestHistoryDocument>,
-            requestBlacklist: IModelRepository<RequestBlacklistDocument>,
-         ) => {
-            return new DetectService(requestHistory, requestBlacklist);
-         },
-         inject: [
-            InjectionTokens.RequestHistoryRepository,
-            InjectionTokens.RequestBlacklistRepository,
-         ],
+  imports: [],
+  providers: [
+    {
+      provide: InjectionTokens.DetectService,
+      useFactory: (
+        requestHistory: IModelRepository<RequestHistoryDocument>,
+        requestBlacklist: IModelRepository<RequestBlacklistDocument>,
+      ) => {
+        return new DetectService(requestHistory, requestBlacklist);
       },
-   ],
-   controllers: [DetectController],
+      inject: [
+        InjectionTokens.RequestHistoryRepository,
+        InjectionTokens.RequestBlacklistRepository,
+      ],
+    },
+  ],
+  controllers: [DetectController],
 })
 export class DetectModule {}
