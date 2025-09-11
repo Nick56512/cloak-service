@@ -29,7 +29,15 @@ export default tseslint.config(
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-floating-promises': 'warn',
-      '@typescript-eslint/no-unsafe-argument': 'warn'
+      '@typescript-eslint/no-unsafe-argument': 'warn',
+       '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_', // дозволяє ігнорувати аргументи, які починаються з "_"
+        varsIgnorePattern: '^_', // дозволяє ігнорувати змінні, які починаються з "_"
+        caughtErrorsIgnorePattern: '^_', // дозволяє ігнорувати помилки у catch з "_"
+      },
+    ],
     },
   },
 );
