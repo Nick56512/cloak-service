@@ -1,31 +1,28 @@
-import { Module } from "@nestjs/common";
-import { MongooseModule } from "@nestjs/mongoose";
-import { InjectionTokens } from "src/core/@types";
-import { IpBlacklistDocument, UserAgentBlacklistDocument } from "src/core/database/entities/request.blacklist";
-import { RequestHistoryDocument } from "src/core/database/entities/request.history";
-import { IModelRepository } from "src/core/database/repository/imodel.repository";
-import { DetectService } from "./detect.service";
-import { DetectController } from "./detect.controller";
+import { Module } from '@nestjs/common';
+import { DetectService } from './detect.service';
+import { DetectController } from './detect.controller';
+import { InjectionTokens } from '@types';
+import { IModelRepository } from '@database/repository/imodel.repository';
+import { RequestHistoryDocument } from '@database/entities/request.history';
+import { RequestBlacklistDocument } from '@database/entities/request.blacklist';
 
 @Module({
-    imports: [],
-    providers: [
-        {
-            provide: InjectionTokens.DetectService,
-            useFactory: (
-                requestHistory: IModelRepository<RequestHistoryDocument>,
-                IpBlacklist: IModelRepository<IpBlacklistDocument>,
-                userAgentBlacklist: IModelRepository<UserAgentBlacklistDocument>
-            ) => {
-                return new DetectService(requestHistory, IpBlacklist, userAgentBlacklist)
-            },
-            inject: [
-                InjectionTokens.RequestHistoryRepository,
-                InjectionTokens.IpBlacklistRepository,
-                InjectionTokens.UserAgentBlacklistRepository
-            ]
-        }
-    ],
-    controllers: [ DetectController ]
+   imports: [],
+   providers: [
+      {
+         provide: InjectionTokens.DetectService,
+         useFactory: (
+            requestHistory: IModelRepository<RequestHistoryDocument>,
+            requestBlacklist: IModelRepository<RequestBlacklistDocument>,
+         ) => {
+            return new DetectService(requestHistory, requestBlacklist);
+         },
+         inject: [
+            InjectionTokens.RequestHistoryRepository,
+            InjectionTokens.RequestBlacklistRepository,
+         ],
+      },
+   ],
+   controllers: [DetectController],
 })
 export class DetectModule {}
