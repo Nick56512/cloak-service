@@ -15,6 +15,7 @@ import { INestApplication } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   setupSwaggerDocs(app);
+  const a =3
   const configService = app.get(ConfigService);
   const port = configService.getOrThrow<number>(ConfigParams.PORT);
   await app.listen(port);
