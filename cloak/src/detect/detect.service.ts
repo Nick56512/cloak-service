@@ -20,7 +20,7 @@ export class DetectService implements IDetectBotService {
     if (!request.ip) {
       return null;
     }
-    let detectResult: DetectResult = {
+    const detectResult: DetectResult = {
       ip: request.ip,
       isBot: false,
     };
