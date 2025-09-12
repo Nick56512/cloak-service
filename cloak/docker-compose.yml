@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   api:
     build: .
@@ -8,8 +6,8 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - PORT=3000
-      - CONNECTION_STRING=mongodb://mongo:27017/cloak
+      - PORT=${PORT}
+      - CONNECTION_STRING=${CONNECTION_STRING}
     depends_on:
       - mongo
   mongo:

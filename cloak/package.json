@@ -21,7 +21,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "precommit": "npx lint-staged && npm run lint && npm run tsc",
     "prepare": "husky",
-    "prepush": "npm run test && npm run tsc"
+    "prepush": "npm run test && npm run tsc",
+    "docker-compose:up": "" 
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
