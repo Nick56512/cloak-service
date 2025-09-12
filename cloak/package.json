@@ -18,7 +18,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prepare": "npx husky"
+    "tsc": "npx tsc --resolveJsonModule --skipLibCheck",
+    "precommit": "npx lint-staged && npm run lint && npm run tsc",
+    "prepare": "husky",
+    "prepush": "npm run test && npm run tsc"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
@@ -85,12 +88,5 @@
       "@config": "build/core/config",
       "@types": "build/core/@types/types.js"
     }
-  },
-
-  "lint-staged": {
-      "src/**/*.{ts,js}": [
-        "eslint --fix",
-        "prettier --write"
-    ]
   }
 }
