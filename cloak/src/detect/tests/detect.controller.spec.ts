@@ -6,8 +6,13 @@ import { RequestDto } from '../detect.models';
 describe('DetectController', () => {
   let controller: DetectController;
 
-  const mockDetectService = {
-    detectBotByRequest: jest.fn(),
+  // Мок сервіс з правильною типізацією
+  const mockDetectService: {
+    detectBotByRequest: (dto: RequestDto) => { isBot: boolean };
+  } = {
+    detectBotByRequest: (dto: RequestDto) => {
+      return { isBot: dto.userAgent.includes('Bot') };
+    },
   };
 
   beforeEach(async () => {
@@ -29,7 +34,7 @@ describe('DetectController', () => {
   });
 
   describe('detectBot', () => {
-    it('should call detectService.detectBotByRequest with correct payload', async () => {
+    it('should return true for bot userAgent', async () => {
       const dto: RequestDto = {
         ip: '192.168.34.2',
         userAgent: 'Bot-Ebanat: 13.45.23',
@@ -37,8 +42,18 @@ describe('DetectController', () => {
 
       const result = await controller.detectBot(dto);
 
-      expect(result).not.toBeNull();
-      expect(result?.isBot).toBe(true);
+      expect(result).toEqual({ isBot: true });
+    });
+
+    it('should return false for non-bot userAgent', async () => {
+      const dto: RequestDto = {
+        ip: '192.168.34.2',
+        userAgent: 'Chrome',
+      };
+
+      const result = await controller.detectBot(dto);
+
+      expect(result).toEqual({ isBot: false });
     });
   });
 });
