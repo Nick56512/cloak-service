@@ -1,4 +1,4 @@
-import { Document, FilterQuery, UpdateQuery } from 'mongoose';
+import { Document, FilterQuery, UpdateQuery } from "mongoose";
 
 export interface IModelRepository<T extends Document> {
   create(model: Partial<T>): Promise<T>;

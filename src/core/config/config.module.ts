@@ -1,8 +1,8 @@
-import { Global, Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import appConfig from './app.config';
-import Joi from 'joi';
-import { ConfigParams } from '@types';
+import { Global, Module } from "@nestjs/common";
+import { ConfigModule } from "@nestjs/config";
+import appConfig from "./app.config";
+import Joi from "joi";
+import { ConfigParams } from "@types";
 
 @Global()
 @Module({

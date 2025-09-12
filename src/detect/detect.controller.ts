@@ -6,17 +6,17 @@ import {
   ValidationPipe,
   UsePipes,
   HttpStatus,
-} from '@nestjs/common';
+} from "@nestjs/common";
 import {
   InjectionTokens,
   Routes,
   SwaggerDescription,
   SwaggerTag,
   SwaggerTitles,
-} from '@types';
-import { RequestDto } from './detect.models';
-import { IDetectBotService } from './detect.service';
-import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+} from "@types";
+import { RequestDto } from "./detect.models";
+import { IDetectBotService } from "./detect.service";
+import { ApiTags, ApiOperation, ApiResponse } from "@nestjs/swagger";
 
 @ApiTags(SwaggerTag.DetectTag)
 @Controller(Routes.Detect)

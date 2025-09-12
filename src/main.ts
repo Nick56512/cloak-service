@@ -1,6 +1,6 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { ConfigService } from '@nestjs/config';
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
+import { ConfigService } from "@nestjs/config";
 import {
   ConfigParams,
   Routes,
@@ -8,9 +8,9 @@ import {
   SwaggerTag,
   SwaggerDescription,
   ApiVersions,
-} from '@types';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { INestApplication } from '@nestjs/common';
+} from "@types";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { INestApplication } from "@nestjs/common";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

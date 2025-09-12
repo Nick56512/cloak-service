@@ -1,8 +1,8 @@
-import { RequestBlacklistDocument } from '@database/entities/request.blacklist';
-import { RequestHistoryDocument } from '@database/entities/request.history';
-import { IModelRepository } from '@database/repository/imodel.repository';
-import { Injectable } from '@nestjs/common';
-import { DetectResult, RequestDto } from './detect.models';
+import { RequestBlacklistDocument } from "@database/entities/request.blacklist";
+import { RequestHistoryDocument } from "@database/entities/request.history";
+import { IModelRepository } from "@database/repository/imodel.repository";
+import { Injectable } from "@nestjs/common";
+import { DetectResult, RequestDto } from "./detect.models";
 
 export interface IDetectBotService {
   detectBotByRequest(request: RequestDto): Promise<DetectResult | null>;

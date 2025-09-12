@@ -1,17 +1,17 @@
-import { Global, Module, Provider } from '@nestjs/common';
-import { getModelToken, MongooseModule } from '@nestjs/mongoose';
-import { ConfigService } from '@nestjs/config';
-import { ConfigParams, InjectionTokens } from '@types';
+import { Global, Module, Provider } from "@nestjs/common";
+import { getModelToken, MongooseModule } from "@nestjs/mongoose";
+import { ConfigService } from "@nestjs/config";
+import { ConfigParams, InjectionTokens } from "@types";
 import {
   RequestHistory,
   RequestHistorySchema,
-} from './entities/request.history';
-import { Document, Model } from 'mongoose';
-import { BaseRepository } from './repository/model.repository';
+} from "./entities/request.history";
+import { Document, Model } from "mongoose";
+import { BaseRepository } from "./repository/model.repository";
 import {
   RequestBlacklist,
   RequestBlacklistSchema,
-} from './entities/request.blacklist';
+} from "./entities/request.blacklist";
 
 function provideRepository<T extends Document>(
   provide: string,

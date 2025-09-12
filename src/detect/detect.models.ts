@@ -1,6 +1,6 @@
-import { IsIP, IsNotEmpty, IsString } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
-import { ApiProperties } from '@types';
+import { IsIP, IsNotEmpty, IsString } from "class-validator";
+import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperties } from "@types";
 
 export class RequestDto {
   @IsIP()

@@ -1,11 +1,11 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document } from "mongoose";
 
 export type RequestHistoryDocument = RequestHistory & Document;
 
 export enum SourceType {
-  Bot = 'bot',
-  User = 'user',
+  Bot = "bot",
+  User = "user",
 }
 
 @Schema()

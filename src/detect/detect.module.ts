@@ -1,10 +1,10 @@
-import { Module } from '@nestjs/common';
-import { DetectService } from './detect.service';
-import { DetectController } from './detect.controller';
-import { InjectionTokens } from '@types';
-import { IModelRepository } from '@database/repository/imodel.repository';
-import { RequestHistoryDocument } from '@database/entities/request.history';
-import { RequestBlacklistDocument } from '@database/entities/request.blacklist';
+import { Module } from "@nestjs/common";
+import { DetectService } from "./detect.service";
+import { DetectController } from "./detect.controller";
+import { InjectionTokens } from "@types";
+import { IModelRepository } from "@database/repository/imodel.repository";
+import { RequestHistoryDocument } from "@database/entities/request.history";
+import { RequestBlacklistDocument } from "@database/entities/request.blacklist";
 
 @Module({
   imports: [],

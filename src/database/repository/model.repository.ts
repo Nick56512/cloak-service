@@ -1,7 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import { IModelRepository } from './imodel.repository';
+import { Injectable } from "@nestjs/common";
+import { IModelRepository } from "./imodel.repository";
 
-import { Document, FilterQuery, UpdateQuery, Model } from 'mongoose';
+import { Document, FilterQuery, UpdateQuery, Model } from "mongoose";
 
 @Injectable()
 export class BaseRepository<T extends Document> implements IModelRepository<T> {
