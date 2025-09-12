@@ -83,13 +83,14 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node",
-    "_moduleAlises": {
+    "testEnvironment": "node"
+  },
+
+  "_moduleAlises": {
       "@database": "build/database",
       "@config": "build/core/config",
       "@types": "build/core/@types/types.js"
-    }
-  },
+    },
 
   "lint-staged": {
     "src/**/*.ts": [

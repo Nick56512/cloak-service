@@ -9,8 +9,8 @@ export const enum SwaggerDescription {
 }
 
 export const enum SwaggerTag {
-  DocsTag = 'Request API',
-  DetectTag = 'detect-tag',
+  DocsTag = 'Detect Bot API',
+  DetectTag = 'Виявлення ботів',
 }
 
 export const enum ApiVersions {
