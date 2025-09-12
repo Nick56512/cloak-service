@@ -2,7 +2,6 @@ import { RequestBlacklistDocument } from '@database/entities/request.blacklist';
 import { RequestHistoryDocument } from '@database/entities/request.history';
 import { IModelRepository } from '@database/repository/imodel.repository';
 import { Injectable } from '@nestjs/common';
-import { Request } from 'express';
 import { DetectResult, RequestDto } from './detect.models';
 
 export interface IDetectBotService {
